@@ -23,7 +23,8 @@ const CORNERS: {
 function padPos(pos: React.CSSProperties): React.CSSProperties {
   const result: React.CSSProperties = {}
   for (const [k, v] of Object.entries(pos)) {
-    result[k as keyof React.CSSProperties] = (v as number) - HIT_PAD
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ;(result as any)[k] = (v as number) - HIT_PAD
   }
   return result
 }
